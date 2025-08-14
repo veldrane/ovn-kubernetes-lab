@@ -135,7 +135,7 @@
     shell: "virt-xml {{ fqdn }} --xml ./devices/interface/vlan/tag/@id={{ virbr }} --edit"
   
   - name: "Change ovs bridge for targe vm"
-    shell: "virt-xml {{ fqdn }} --xml ./devices/interface/source/@network=class --edit"
+    shell: "virt-xml {{ fqdn }} --xml ./devices/interface/source/@network={{- libvirtnet }} --edit"
 
   - name: "Start domain"
     shell: "virsh start {{ fqdn }}"
