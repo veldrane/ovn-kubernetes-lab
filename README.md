@@ -1,9 +1,9 @@
 <p align="left">
-  <img src="./images/vxland.png" alt="vxland logo" width="180"/>
+  <img src="./images/vxland.png" alt="vxland logo" width="200"/>
 </p>
 
 
-VXLAND is a modular, automation-driven lab environment for testing **OVN-Kubernetes** and related infrastructure components.  
+is a modular, automation-driven lab environment for testing **OVN-Kubernetes** and related infrastructure components.  
 It is designed to quickly spin up a fully functional environment using **Ansible**, **Libvirt**, and supporting shell scripts.
 
 ---
