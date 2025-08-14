@@ -1,5 +1,3 @@
-# VXLAND Lab
-
 <p align="left">
   <img src="./images/vxland.png" alt="vxland logo" width="180"/>
 </p>
