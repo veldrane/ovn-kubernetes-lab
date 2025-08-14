@@ -1,0 +1,16 @@
+- name: Set global variables
+  set_fact:
+    domain: "vxland.syscallx86.com"
+    ipaserver: "idm"
+    jumpserver: "jump"
+    ipaip: "10.8.0.10"
+    svcadmin: "admin"
+    adminpwd: "admin123"
+    template: "basevm"
+    template_dir: "/data/vms/templates"
+    vms_dir: "/data/lite"
+    mem: "4G"
+    vcpus: "8"
+    user_password: "admin123"
+    virbr: "80"
+    libvirtnet: "vxland"

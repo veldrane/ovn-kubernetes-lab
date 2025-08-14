@@ -1,0 +1,2417 @@
+  - Building worker 1
+[WARNING]: Found both group and host with same name: localhost
+
+PLAY [localhost] ***************************************************************
+
+TASK [Set create master env variables] *****************************************
+skipping: [localhost]
+
+TASK [Set create workser env variables] ****************************************
+changed: [localhost]
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=1    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+
+[WARNING]: Found both group and host with same name: localhost
+[DEPRECATION WARNING]: "include" is deprecated, use include_tasks/import_tasks 
+instead. See https://docs.ansible.com/ansible-
+core/2.14/user_guide/playbooks_reuse_includes.html for details. This feature 
+will be removed in version 2.16. Deprecation warnings can be disabled by 
+setting deprecation_warnings=False in ansible.cfg.
+
+PLAY [localhost] ***************************************************************
+
+TASK [Set global variables] ****************************************************
+ok: [localhost]
+
+TASK [Set vm local variables] **************************************************
+ok: [localhost]
+
+TASK [Set subnet inside virbr] *************************************************
+ok: [localhost]
+
+TASK [Set ip] ******************************************************************
+ok: [localhost]
+
+TASK [Set FQDN] ****************************************************************
+ok: [localhost]
+
+TASK [Set REALM] ***************************************************************
+ok: [localhost]
+
+TASK [Set vm] ******************************************************************
+ok: [localhost]
+
+TASK [Create ansible group for new hosts] **************************************
+changed: [localhost]
+
+TASK [Delete ssh keys for template] ********************************************
+changed: [localhost]
+
+TASK [Delete ssh keys for ip] **************************************************
+changed: [localhost]
+
+TASK [Create ansible group for ipa server] *************************************
+changed: [localhost]
+
+TASK [Create data directory] ***************************************************
+changed: [localhost]
+
+TASK [Clone template] **********************************************************
+changed: [localhost]
+
+TASK [Change rootvg size] ******************************************************
+changed: [localhost]
+
+TASK [Set vcpus] ***************************************************************
+changed: [localhost]
+
+TASK [Set max memory] **********************************************************
+changed: [localhost]
+
+TASK [Set more memory] *********************************************************
+changed: [localhost]
+
+TASK [Start machine] ***********************************************************
+changed: [localhost]
+
+PLAY [basevm] ******************************************************************
+
+TASK [pause] *******************************************************************
+Pausing for 35 seconds
+(ctrl+C then 'C' = continue early, ctrl+C then 'A' = abort)
+ok: [basevm]
+
+TASK [Set global variables] ****************************************************
+ok: [basevm]
+
+TASK [Set vm local variables] **************************************************
+ok: [basevm]
+
+TASK [Set subnet inside virbr] *************************************************
+ok: [basevm]
+
+TASK [Set ip] ******************************************************************
+ok: [basevm]
+
+TASK [Set FQDN] ****************************************************************
+ok: [basevm]
+
+TASK [Set REALM] ***************************************************************
+ok: [basevm]
+
+TASK [Set vm] ******************************************************************
+ok: [basevm]
+
+TASK [Change hostname] *********************************************************
+changed: [basevm]
+
+TASK [Add hosts to hostname] ***************************************************
+changed: [basevm]
+
+TASK [Resize partition] ********************************************************
+changed: [basevm]
+
+TASK [Partprobe disks] *********************************************************
+changed: [basevm]
+
+TASK [PV resize] ***************************************************************
+changed: [basevm]
+
+TASK [Add an Ethernet connection with static IP configuration] *****************
+changed: [basevm]
+
+TASK [Update packages] *********************************************************
+changed: [basevm]
+
+TASK [Install additional packages] *********************************************
+changed: [basevm]
+
+TASK [Update sshd config - part 1] *********************************************
+changed: [basevm]
+
+TASK [Update sshd config - part 2] *********************************************
+changed: [basevm]
+
+TASK [Update ssh config - non strict host checking] ****************************
+changed: [basevm]
+
+TASK [Update ssh config - GSSAPI] **********************************************
+changed: [basevm]
+
+TASK [Set timezone to Prague] **************************************************
+changed: [basevm]
+
+PLAY [localhost] ***************************************************************
+
+TASK [Set global variables] ****************************************************
+ok: [localhost]
+
+TASK [Set vm local variables] **************************************************
+ok: [localhost]
+
+TASK [Set subnet inside virbr] *************************************************
+ok: [localhost]
+
+TASK [Set ip] ******************************************************************
+ok: [localhost]
+
+TASK [Set FQDN] ****************************************************************
+ok: [localhost]
+
+TASK [Set REALM] ***************************************************************
+ok: [localhost]
+
+TASK [Set vm] ******************************************************************
+ok: [localhost]
+
+TASK [Shutdown host] ***********************************************************
+changed: [localhost]
+
+TASK [pause] *******************************************************************
+Pausing for 5 seconds
+(ctrl+C then 'C' = continue early, ctrl+C then 'A' = abort)
+ok: [localhost]
+
+TASK [Destroy domain] **********************************************************
+fatal: [localhost]: FAILED! => {"changed": true, "cmd": "virsh destroy worker01.class.syscallx86.com", "delta": "0:00:00.079636", "end": "2025-07-31 15:16:57.998035", "msg": "non-zero return code", "rc": 1, "start": "2025-07-31 15:16:57.918399", "stderr": "error: Failed to destroy domain 'worker01.class.syscallx86.com'\nerror: Requested operation is not valid: domain is not running", "stderr_lines": ["error: Failed to destroy domain 'worker01.class.syscallx86.com'", "error: Requested operation is not valid: domain is not running"], "stdout": "", "stdout_lines": []}
+...ignoring
+
+TASK [Change network configuration] ********************************************
+changed: [localhost]
+
+TASK [Change ovs bridge for targe vm] ******************************************
+changed: [localhost]
+
+TASK [Start domain] ************************************************************
+changed: [localhost]
+
+PLAY [newhost] *****************************************************************
+
+TASK [pause] *******************************************************************
+Pausing for 25 seconds
+(ctrl+C then 'C' = continue early, ctrl+C then 'A' = abort)
+ok: [10.4.0.81]
+
+TASK [Set global variables] ****************************************************
+ok: [10.4.0.81]
+
+TASK [Set vm local variables] **************************************************
+ok: [10.4.0.81]
+
+TASK [Set subnet inside virbr] *************************************************
+ok: [10.4.0.81]
+
+TASK [Set ip] ******************************************************************
+ok: [10.4.0.81]
+
+TASK [Set FQDN] ****************************************************************
+ok: [10.4.0.81]
+
+TASK [Set REALM] ***************************************************************
+ok: [10.4.0.81]
+
+TASK [Set vm] ******************************************************************
+ok: [10.4.0.81]
+
+TASK [Join machine to IPA domain] **********************************************
+changed: [10.4.0.81]
+
+PLAY RECAP *********************************************************************
+10.4.0.81                  : ok=9    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+basevm                     : ok=21   changed=13   unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+localhost                  : ok=31   changed=16   unreachable=0    failed=0    skipped=0    rescued=0    ignored=1   
+
+[WARNING]: Found both group and host with same name: localhost
+[DEPRECATION WARNING]: "include" is deprecated, use include_tasks/import_tasks 
+instead. See https://docs.ansible.com/ansible-
+core/2.14/user_guide/playbooks_reuse_includes.html for details. This feature 
+will be removed in version 2.16. Deprecation warnings can be disabled by 
+setting deprecation_warnings=False in ansible.cfg.
+
+PLAY [localhost] ***************************************************************
+
+TASK [Set global variables] ****************************************************
+ok: [localhost]
+
+TASK [Set vm local variables] **************************************************
+ok: [localhost]
+
+TASK [Set subnet inside virbr] *************************************************
+ok: [localhost]
+
+TASK [Set ip] ******************************************************************
+ok: [localhost]
+
+TASK [Set FQDN] ****************************************************************
+ok: [localhost]
+
+TASK [Set REALM] ***************************************************************
+ok: [localhost]
+
+TASK [Set vm] ******************************************************************
+ok: [localhost]
+
+TASK [meta] ********************************************************************
+skipping: [localhost]
+
+TASK [Create snapshot for the host] ********************************************
+changed: [localhost]
+
+TASK [Create ansible group for new hosts] **************************************
+changed: [localhost]
+
+TASK [Create ansible group for new hosts] **************************************
+changed: [localhost]
+
+PLAY [master] ******************************************************************
+
+TASK [Set global variables] ****************************************************
+ok: [master01.class.syscallx86.com]
+
+TASK [Set vm local variables] **************************************************
+ok: [master01.class.syscallx86.com]
+
+TASK [Set subnet inside virbr] *************************************************
+ok: [master01.class.syscallx86.com]
+
+TASK [Set ip] ******************************************************************
+ok: [master01.class.syscallx86.com]
+
+TASK [Set FQDN] ****************************************************************
+ok: [master01.class.syscallx86.com]
+
+TASK [Set REALM] ***************************************************************
+ok: [master01.class.syscallx86.com]
+
+TASK [Set vm] ******************************************************************
+ok: [master01.class.syscallx86.com]
+
+TASK [Create bootstrap token] **************************************************
+changed: [master01.class.syscallx86.com]
+
+TASK [Add K8S Token to dummy host] *********************************************
+changed: [master01.class.syscallx86.com]
+
+PLAY [newhost] *****************************************************************
+
+TASK [Set global variables] ****************************************************
+ok: [10.4.0.81]
+
+TASK [Set vm local variables] **************************************************
+ok: [10.4.0.81]
+
+TASK [Set subnet inside virbr] *************************************************
+ok: [10.4.0.81]
+
+TASK [Set ip] ******************************************************************
+ok: [10.4.0.81]
+
+TASK [Set FQDN] ****************************************************************
+ok: [10.4.0.81]
+
+TASK [Set REALM] ***************************************************************
+ok: [10.4.0.81]
+
+TASK [Set vm] ******************************************************************
+ok: [10.4.0.81]
+
+TASK [Restart chronyd] *********************************************************
+changed: [10.4.0.81]
+
+TASK [Disable SElinux] *********************************************************
+changed: [10.4.0.81]
+
+TASK [Make /etc/kubernetes directory and change the selinux context] ***********
+changed: [10.4.0.81]
+
+TASK [Make /var/lib/etcd and change the selinux context] ***********************
+changed: [10.4.0.81]
+
+TASK [Restore contexts] ********************************************************
+changed: [10.4.0.81]
+
+TASK [Disable swap] ************************************************************
+changed: [10.4.0.81]
+
+TASK [Disable firewalld] *******************************************************
+changed: [10.4.0.81]
+
+TASK [Install ovs] *************************************************************
+changed: [10.4.0.81]
+
+TASK [Copy kubernetes repo definition to yum dir] ******************************
+changed: [10.4.0.81]
+
+TASK [Copy crio repo definition to yum dir] ************************************
+changed: [10.4.0.81]
+
+TASK [Install kubeadm, crio and wget] ******************************************
+changed: [10.4.0.81]
+
+TASK [Restart and network manager] *********************************************
+changed: [10.4.0.81]
+
+TASK [Start and enable openvswitch] ********************************************
+changed: [10.4.0.81]
+
+TASK [Enable crio] *************************************************************
+changed: [10.4.0.81]
+
+TASK [Add bridge] **************************************************************
+changed: [10.4.0.81]
+
+TASK [Add bridge - new port] ***************************************************
+changed: [10.4.0.81]
+
+TASK [Add bridge - slave] ******************************************************
+changed: [10.4.0.81]
+
+TASK [Add bridge - second iface] ***********************************************
+changed: [10.4.0.81]
+
+TASK [Add bridge - add ethernet iface] *****************************************
+changed: [10.4.0.81]
+
+TASK [Set no to autoconnect for ethernet] **************************************
+changed: [10.4.0.81]
+
+TASK [Set autoconnect to bridge] ***********************************************
+changed: [10.4.0.81]
+
+TASK [Set autoconnect to bridge] ***********************************************
+changed: [10.4.0.81]
+
+TASK [Set autoconnect to bridge] ***********************************************
+changed: [10.4.0.81]
+
+TASK [Set autoconnect to bridge] ***********************************************
+changed: [10.4.0.81]
+
+TASK [Set autoconnect to bridge] ***********************************************
+changed: [10.4.0.81]
+
+TASK [Change ovn bridge] *******************************************************
+changed: [10.4.0.81]
+
+TASK [Change ovn bridge] *******************************************************
+changed: [10.4.0.81]
+
+TASK [Change ovn bridge] *******************************************************
+changed: [10.4.0.81]
+
+TASK [Change ovn bridge] *******************************************************
+changed: [10.4.0.81]
+
+TASK [Change ovn bridge] *******************************************************
+changed: [10.4.0.81]
+
+TASK [Change ovn bridge] *******************************************************
+changed: [10.4.0.81]
+
+TASK [Change ovn bridge] *******************************************************
+changed: [10.4.0.81]
+
+TASK [Modules for crio] ********************************************************
+changed: [10.4.0.81]
+
+TASK [Restart server asynchronously] *******************************************
+changed: [10.4.0.81]
+
+PLAY [localhost] ***************************************************************
+
+TASK [Delay for 30 - server goes up] *******************************************
+Pausing for 30 seconds
+(ctrl+C then 'C' = continue early, ctrl+C then 'A' = abort)
+ok: [localhost]
+
+PLAY RECAP *********************************************************************
+10.4.0.81                  : ok=41   changed=34   unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+localhost                  : ok=11   changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+master01.class.syscallx86.com : ok=9    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+[WARNING]: Found both group and host with same name: localhost
+[DEPRECATION WARNING]: "include" is deprecated, use include_tasks/import_tasks 
+instead. See https://docs.ansible.com/ansible-
+core/2.14/user_guide/playbooks_reuse_includes.html for details. This feature 
+will be removed in version 2.16. Deprecation warnings can be disabled by 
+setting deprecation_warnings=False in ansible.cfg.
+
+PLAY [localhost] ***************************************************************
+
+TASK [Set global variables] ****************************************************
+ok: [localhost]
+
+TASK [Set vm local variables] **************************************************
+ok: [localhost]
+
+TASK [Set subnet inside virbr] *************************************************
+ok: [localhost]
+
+TASK [Set ip] ******************************************************************
+ok: [localhost]
+
+TASK [Set FQDN] ****************************************************************
+ok: [localhost]
+
+TASK [Set REALM] ***************************************************************
+ok: [localhost]
+
+TASK [Set vm] ******************************************************************
+ok: [localhost]
+
+TASK [meta] ********************************************************************
+skipping: [localhost]
+
+TASK [Create snapshot for the host] ********************************************
+changed: [localhost]
+
+TASK [Create ansible group for new hosts] **************************************
+changed: [localhost]
+
+TASK [Create ansible group for new hosts] **************************************
+changed: [localhost]
+
+PLAY [master] ******************************************************************
+
+TASK [Set global variables] ****************************************************
+ok: [master01.class.syscallx86.com]
+
+TASK [Set vm local variables] **************************************************
+ok: [master01.class.syscallx86.com]
+
+TASK [Set subnet inside virbr] *************************************************
+ok: [master01.class.syscallx86.com]
+
+TASK [Set ip] ******************************************************************
+ok: [master01.class.syscallx86.com]
+
+TASK [Set FQDN] ****************************************************************
+ok: [master01.class.syscallx86.com]
+
+TASK [Set REALM] ***************************************************************
+ok: [master01.class.syscallx86.com]
+
+TASK [Set vm] ******************************************************************
+ok: [master01.class.syscallx86.com]
+
+TASK [Create bootstrap token] **************************************************
+changed: [master01.class.syscallx86.com]
+
+TASK [Add K8S Token to dummy host] *********************************************
+changed: [master01.class.syscallx86.com]
+
+PLAY [newhost] *****************************************************************
+
+TASK [Set global variables] ****************************************************
+ok: [10.4.0.81]
+
+TASK [Set vm local variables] **************************************************
+ok: [10.4.0.81]
+
+TASK [Set subnet inside virbr] *************************************************
+ok: [10.4.0.81]
+
+TASK [Set ip] ******************************************************************
+ok: [10.4.0.81]
+
+TASK [Set FQDN] ****************************************************************
+ok: [10.4.0.81]
+
+TASK [Set REALM] ***************************************************************
+ok: [10.4.0.81]
+
+TASK [Set vm] ******************************************************************
+ok: [10.4.0.81]
+
+TASK [Copy ssh keys for root - HACK - must be changed!] ************************
+changed: [10.4.0.81]
+
+TASK [Copy ssh keys for root - HACK - must be changed! - changing perm] ********
+changed: [10.4.0.81]
+
+TASK [Get token file] **********************************************************
+changed: [10.4.0.81]
+
+TASK [Get token] ***************************************************************
+changed: [10.4.0.81]
+
+TASK [Get CA token] ************************************************************
+changed: [10.4.0.81]
+
+TASK [Add openvswitdh bridge] **************************************************
+changed: [10.4.0.81]
+
+TASK [Restart openvswitch] *****************************************************
+changed: [10.4.0.81]
+
+TASK [Enable kubelet] **********************************************************
+changed: [10.4.0.81]
+
+TASK [Join node to kubernetes cluster] *****************************************
+changed: [10.4.0.81]
+
+TASK [Restart kubelet] *********************************************************
+changed: [10.4.0.81]
+
+TASK [Create .kube directory] **************************************************
+changed: [10.4.0.81]
+
+TASK [Copy cfg to .kube dir] ***************************************************
+changed: [10.4.0.81]
+
+TASK [Change ownership to kube directory] **************************************
+changed: [10.4.0.81]
+
+TASK [Label node as a worker] **************************************************
+changed: [10.4.0.81]
+
+PLAY RECAP *********************************************************************
+10.4.0.81                  : ok=21   changed=14   unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+localhost                  : ok=10   changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+master01.class.syscallx86.com : ok=9    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+  - Building worker 2
+[WARNING]: Found both group and host with same name: localhost
+
+PLAY [localhost] ***************************************************************
+
+TASK [Set create master env variables] *****************************************
+skipping: [localhost]
+
+TASK [Set create workser env variables] ****************************************
+changed: [localhost]
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=1    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+
+[WARNING]: Found both group and host with same name: localhost
+[DEPRECATION WARNING]: "include" is deprecated, use include_tasks/import_tasks 
+instead. See https://docs.ansible.com/ansible-
+core/2.14/user_guide/playbooks_reuse_includes.html for details. This feature 
+will be removed in version 2.16. Deprecation warnings can be disabled by 
+setting deprecation_warnings=False in ansible.cfg.
+
+PLAY [localhost] ***************************************************************
+
+TASK [Set global variables] ****************************************************
+ok: [localhost]
+
+TASK [Set vm local variables] **************************************************
+ok: [localhost]
+
+TASK [Set subnet inside virbr] *************************************************
+ok: [localhost]
+
+TASK [Set ip] ******************************************************************
+ok: [localhost]
+
+TASK [Set FQDN] ****************************************************************
+ok: [localhost]
+
+TASK [Set REALM] ***************************************************************
+ok: [localhost]
+
+TASK [Set vm] ******************************************************************
+ok: [localhost]
+
+TASK [Create ansible group for new hosts] **************************************
+changed: [localhost]
+
+TASK [Delete ssh keys for template] ********************************************
+changed: [localhost]
+
+TASK [Delete ssh keys for ip] **************************************************
+changed: [localhost]
+
+TASK [Create ansible group for ipa server] *************************************
+changed: [localhost]
+
+TASK [Create data directory] ***************************************************
+changed: [localhost]
+
+TASK [Clone template] **********************************************************
+changed: [localhost]
+
+TASK [Change rootvg size] ******************************************************
+changed: [localhost]
+
+TASK [Set vcpus] ***************************************************************
+changed: [localhost]
+
+TASK [Set max memory] **********************************************************
+changed: [localhost]
+
+TASK [Set more memory] *********************************************************
+changed: [localhost]
+
+TASK [Start machine] ***********************************************************
+changed: [localhost]
+
+PLAY [basevm] ******************************************************************
+
+TASK [pause] *******************************************************************
+Pausing for 35 seconds
+(ctrl+C then 'C' = continue early, ctrl+C then 'A' = abort)
+ok: [basevm]
+
+TASK [Set global variables] ****************************************************
+ok: [basevm]
+
+TASK [Set vm local variables] **************************************************
+ok: [basevm]
+
+TASK [Set subnet inside virbr] *************************************************
+ok: [basevm]
+
+TASK [Set ip] ******************************************************************
+ok: [basevm]
+
+TASK [Set FQDN] ****************************************************************
+ok: [basevm]
+
+TASK [Set REALM] ***************************************************************
+ok: [basevm]
+
+TASK [Set vm] ******************************************************************
+ok: [basevm]
+
+TASK [Change hostname] *********************************************************
+changed: [basevm]
+
+TASK [Add hosts to hostname] ***************************************************
+changed: [basevm]
+
+TASK [Resize partition] ********************************************************
+changed: [basevm]
+
+TASK [Partprobe disks] *********************************************************
+changed: [basevm]
+
+TASK [PV resize] ***************************************************************
+changed: [basevm]
+
+TASK [Add an Ethernet connection with static IP configuration] *****************
+changed: [basevm]
+
+TASK [Update packages] *********************************************************
+changed: [basevm]
+
+TASK [Install additional packages] *********************************************
+changed: [basevm]
+
+TASK [Update sshd config - part 1] *********************************************
+changed: [basevm]
+
+TASK [Update sshd config - part 2] *********************************************
+changed: [basevm]
+
+TASK [Update ssh config - non strict host checking] ****************************
+changed: [basevm]
+
+TASK [Update ssh config - GSSAPI] **********************************************
+changed: [basevm]
+
+TASK [Set timezone to Prague] **************************************************
+changed: [basevm]
+
+PLAY [localhost] ***************************************************************
+
+TASK [Set global variables] ****************************************************
+ok: [localhost]
+
+TASK [Set vm local variables] **************************************************
+ok: [localhost]
+
+TASK [Set subnet inside virbr] *************************************************
+ok: [localhost]
+
+TASK [Set ip] ******************************************************************
+ok: [localhost]
+
+TASK [Set FQDN] ****************************************************************
+ok: [localhost]
+
+TASK [Set REALM] ***************************************************************
+ok: [localhost]
+
+TASK [Set vm] ******************************************************************
+ok: [localhost]
+
+TASK [Shutdown host] ***********************************************************
+changed: [localhost]
+
+TASK [pause] *******************************************************************
+Pausing for 5 seconds
+(ctrl+C then 'C' = continue early, ctrl+C then 'A' = abort)
+ok: [localhost]
+
+TASK [Destroy domain] **********************************************************
+fatal: [localhost]: FAILED! => {"changed": true, "cmd": "virsh destroy worker02.class.syscallx86.com", "delta": "0:00:00.076874", "end": "2025-07-31 15:23:36.489195", "msg": "non-zero return code", "rc": 1, "start": "2025-07-31 15:23:36.412321", "stderr": "error: Failed to destroy domain 'worker02.class.syscallx86.com'\nerror: Requested operation is not valid: domain is not running", "stderr_lines": ["error: Failed to destroy domain 'worker02.class.syscallx86.com'", "error: Requested operation is not valid: domain is not running"], "stdout": "", "stdout_lines": []}
+...ignoring
+
+TASK [Change network configuration] ********************************************
+changed: [localhost]
+
+TASK [Change ovs bridge for targe vm] ******************************************
+changed: [localhost]
+
+TASK [Start domain] ************************************************************
+changed: [localhost]
+
+PLAY [newhost] *****************************************************************
+
+TASK [pause] *******************************************************************
+Pausing for 25 seconds
+(ctrl+C then 'C' = continue early, ctrl+C then 'A' = abort)
+ok: [10.4.0.82]
+
+TASK [Set global variables] ****************************************************
+ok: [10.4.0.82]
+
+TASK [Set vm local variables] **************************************************
+ok: [10.4.0.82]
+
+TASK [Set subnet inside virbr] *************************************************
+ok: [10.4.0.82]
+
+TASK [Set ip] ******************************************************************
+ok: [10.4.0.82]
+
+TASK [Set FQDN] ****************************************************************
+ok: [10.4.0.82]
+
+TASK [Set REALM] ***************************************************************
+ok: [10.4.0.82]
+
+TASK [Set vm] ******************************************************************
+ok: [10.4.0.82]
+
+TASK [Join machine to IPA domain] **********************************************
+changed: [10.4.0.82]
+
+PLAY RECAP *********************************************************************
+10.4.0.82                  : ok=9    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+basevm                     : ok=21   changed=13   unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+localhost                  : ok=31   changed=16   unreachable=0    failed=0    skipped=0    rescued=0    ignored=1   
+
+[WARNING]: Found both group and host with same name: localhost
+[DEPRECATION WARNING]: "include" is deprecated, use include_tasks/import_tasks 
+instead. See https://docs.ansible.com/ansible-
+core/2.14/user_guide/playbooks_reuse_includes.html for details. This feature 
+will be removed in version 2.16. Deprecation warnings can be disabled by 
+setting deprecation_warnings=False in ansible.cfg.
+
+PLAY [localhost] ***************************************************************
+
+TASK [Set global variables] ****************************************************
+ok: [localhost]
+
+TASK [Set vm local variables] **************************************************
+ok: [localhost]
+
+TASK [Set subnet inside virbr] *************************************************
+ok: [localhost]
+
+TASK [Set ip] ******************************************************************
+ok: [localhost]
+
+TASK [Set FQDN] ****************************************************************
+ok: [localhost]
+
+TASK [Set REALM] ***************************************************************
+ok: [localhost]
+
+TASK [Set vm] ******************************************************************
+ok: [localhost]
+
+TASK [meta] ********************************************************************
+skipping: [localhost]
+
+TASK [Create snapshot for the host] ********************************************
+changed: [localhost]
+
+TASK [Create ansible group for new hosts] **************************************
+changed: [localhost]
+
+TASK [Create ansible group for new hosts] **************************************
+changed: [localhost]
+
+PLAY [master] ******************************************************************
+
+TASK [Set global variables] ****************************************************
+ok: [master01.class.syscallx86.com]
+
+TASK [Set vm local variables] **************************************************
+ok: [master01.class.syscallx86.com]
+
+TASK [Set subnet inside virbr] *************************************************
+ok: [master01.class.syscallx86.com]
+
+TASK [Set ip] ******************************************************************
+ok: [master01.class.syscallx86.com]
+
+TASK [Set FQDN] ****************************************************************
+ok: [master01.class.syscallx86.com]
+
+TASK [Set REALM] ***************************************************************
+ok: [master01.class.syscallx86.com]
+
+TASK [Set vm] ******************************************************************
+ok: [master01.class.syscallx86.com]
+
+TASK [Create bootstrap token] **************************************************
+changed: [master01.class.syscallx86.com]
+
+TASK [Add K8S Token to dummy host] *********************************************
+changed: [master01.class.syscallx86.com]
+
+PLAY [newhost] *****************************************************************
+
+TASK [Set global variables] ****************************************************
+ok: [10.4.0.82]
+
+TASK [Set vm local variables] **************************************************
+ok: [10.4.0.82]
+
+TASK [Set subnet inside virbr] *************************************************
+ok: [10.4.0.82]
+
+TASK [Set ip] ******************************************************************
+ok: [10.4.0.82]
+
+TASK [Set FQDN] ****************************************************************
+ok: [10.4.0.82]
+
+TASK [Set REALM] ***************************************************************
+ok: [10.4.0.82]
+
+TASK [Set vm] ******************************************************************
+ok: [10.4.0.82]
+
+TASK [Restart chronyd] *********************************************************
+changed: [10.4.0.82]
+
+TASK [Disable SElinux] *********************************************************
+changed: [10.4.0.82]
+
+TASK [Make /etc/kubernetes directory and change the selinux context] ***********
+changed: [10.4.0.82]
+
+TASK [Make /var/lib/etcd and change the selinux context] ***********************
+changed: [10.4.0.82]
+
+TASK [Restore contexts] ********************************************************
+changed: [10.4.0.82]
+
+TASK [Disable swap] ************************************************************
+changed: [10.4.0.82]
+
+TASK [Disable firewalld] *******************************************************
+changed: [10.4.0.82]
+
+TASK [Install ovs] *************************************************************
+changed: [10.4.0.82]
+
+TASK [Copy kubernetes repo definition to yum dir] ******************************
+changed: [10.4.0.82]
+
+TASK [Copy crio repo definition to yum dir] ************************************
+changed: [10.4.0.82]
+
+TASK [Install kubeadm, crio and wget] ******************************************
+changed: [10.4.0.82]
+
+TASK [Restart and network manager] *********************************************
+changed: [10.4.0.82]
+
+TASK [Start and enable openvswitch] ********************************************
+changed: [10.4.0.82]
+
+TASK [Enable crio] *************************************************************
+changed: [10.4.0.82]
+
+TASK [Add bridge] **************************************************************
+changed: [10.4.0.82]
+
+TASK [Add bridge - new port] ***************************************************
+changed: [10.4.0.82]
+
+TASK [Add bridge - slave] ******************************************************
+changed: [10.4.0.82]
+
+TASK [Add bridge - second iface] ***********************************************
+changed: [10.4.0.82]
+
+TASK [Add bridge - add ethernet iface] *****************************************
+changed: [10.4.0.82]
+
+TASK [Set no to autoconnect for ethernet] **************************************
+changed: [10.4.0.82]
+
+TASK [Set autoconnect to bridge] ***********************************************
+changed: [10.4.0.82]
+
+TASK [Set autoconnect to bridge] ***********************************************
+changed: [10.4.0.82]
+
+TASK [Set autoconnect to bridge] ***********************************************
+changed: [10.4.0.82]
+
+TASK [Set autoconnect to bridge] ***********************************************
+changed: [10.4.0.82]
+
+TASK [Set autoconnect to bridge] ***********************************************
+changed: [10.4.0.82]
+
+TASK [Change ovn bridge] *******************************************************
+changed: [10.4.0.82]
+
+TASK [Change ovn bridge] *******************************************************
+changed: [10.4.0.82]
+
+TASK [Change ovn bridge] *******************************************************
+changed: [10.4.0.82]
+
+TASK [Change ovn bridge] *******************************************************
+changed: [10.4.0.82]
+
+TASK [Change ovn bridge] *******************************************************
+changed: [10.4.0.82]
+
+TASK [Change ovn bridge] *******************************************************
+changed: [10.4.0.82]
+
+TASK [Change ovn bridge] *******************************************************
+changed: [10.4.0.82]
+
+TASK [Modules for crio] ********************************************************
+changed: [10.4.0.82]
+
+TASK [Restart server asynchronously] *******************************************
+changed: [10.4.0.82]
+
+PLAY [localhost] ***************************************************************
+
+TASK [Delay for 30 - server goes up] *******************************************
+Pausing for 30 seconds
+(ctrl+C then 'C' = continue early, ctrl+C then 'A' = abort)
+ok: [localhost]
+
+PLAY RECAP *********************************************************************
+10.4.0.82                  : ok=41   changed=34   unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+localhost                  : ok=11   changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+master01.class.syscallx86.com : ok=9    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+[WARNING]: Found both group and host with same name: localhost
+[DEPRECATION WARNING]: "include" is deprecated, use include_tasks/import_tasks 
+instead. See https://docs.ansible.com/ansible-
+core/2.14/user_guide/playbooks_reuse_includes.html for details. This feature 
+will be removed in version 2.16. Deprecation warnings can be disabled by 
+setting deprecation_warnings=False in ansible.cfg.
+
+PLAY [localhost] ***************************************************************
+
+TASK [Set global variables] ****************************************************
+ok: [localhost]
+
+TASK [Set vm local variables] **************************************************
+ok: [localhost]
+
+TASK [Set subnet inside virbr] *************************************************
+ok: [localhost]
+
+TASK [Set ip] ******************************************************************
+ok: [localhost]
+
+TASK [Set FQDN] ****************************************************************
+ok: [localhost]
+
+TASK [Set REALM] ***************************************************************
+ok: [localhost]
+
+TASK [Set vm] ******************************************************************
+ok: [localhost]
+
+TASK [meta] ********************************************************************
+skipping: [localhost]
+
+TASK [Create snapshot for the host] ********************************************
+changed: [localhost]
+
+TASK [Create ansible group for new hosts] **************************************
+changed: [localhost]
+
+TASK [Create ansible group for new hosts] **************************************
+changed: [localhost]
+
+PLAY [master] ******************************************************************
+
+TASK [Set global variables] ****************************************************
+ok: [master01.class.syscallx86.com]
+
+TASK [Set vm local variables] **************************************************
+ok: [master01.class.syscallx86.com]
+
+TASK [Set subnet inside virbr] *************************************************
+ok: [master01.class.syscallx86.com]
+
+TASK [Set ip] ******************************************************************
+ok: [master01.class.syscallx86.com]
+
+TASK [Set FQDN] ****************************************************************
+ok: [master01.class.syscallx86.com]
+
+TASK [Set REALM] ***************************************************************
+ok: [master01.class.syscallx86.com]
+
+TASK [Set vm] ******************************************************************
+ok: [master01.class.syscallx86.com]
+
+TASK [Create bootstrap token] **************************************************
+changed: [master01.class.syscallx86.com]
+
+TASK [Add K8S Token to dummy host] *********************************************
+changed: [master01.class.syscallx86.com]
+
+PLAY [newhost] *****************************************************************
+
+TASK [Set global variables] ****************************************************
+ok: [10.4.0.82]
+
+TASK [Set vm local variables] **************************************************
+ok: [10.4.0.82]
+
+TASK [Set subnet inside virbr] *************************************************
+ok: [10.4.0.82]
+
+TASK [Set ip] ******************************************************************
+ok: [10.4.0.82]
+
+TASK [Set FQDN] ****************************************************************
+ok: [10.4.0.82]
+
+TASK [Set REALM] ***************************************************************
+ok: [10.4.0.82]
+
+TASK [Set vm] ******************************************************************
+ok: [10.4.0.82]
+
+TASK [Copy ssh keys for root - HACK - must be changed!] ************************
+changed: [10.4.0.82]
+
+TASK [Copy ssh keys for root - HACK - must be changed! - changing perm] ********
+changed: [10.4.0.82]
+
+TASK [Get token file] **********************************************************
+changed: [10.4.0.82]
+
+TASK [Get token] ***************************************************************
+changed: [10.4.0.82]
+
+TASK [Get CA token] ************************************************************
+changed: [10.4.0.82]
+
+TASK [Add openvswitdh bridge] **************************************************
+changed: [10.4.0.82]
+
+TASK [Restart openvswitch] *****************************************************
+changed: [10.4.0.82]
+
+TASK [Enable kubelet] **********************************************************
+changed: [10.4.0.82]
+
+TASK [Join node to kubernetes cluster] *****************************************
+changed: [10.4.0.82]
+
+TASK [Restart kubelet] *********************************************************
+changed: [10.4.0.82]
+
+TASK [Create .kube directory] **************************************************
+changed: [10.4.0.82]
+
+TASK [Copy cfg to .kube dir] ***************************************************
+changed: [10.4.0.82]
+
+TASK [Change ownership to kube directory] **************************************
+changed: [10.4.0.82]
+
+TASK [Label node as a worker] **************************************************
+changed: [10.4.0.82]
+
+PLAY RECAP *********************************************************************
+10.4.0.82                  : ok=21   changed=14   unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+localhost                  : ok=10   changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+master01.class.syscallx86.com : ok=9    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+  - Building worker 3
+[WARNING]: Found both group and host with same name: localhost
+
+PLAY [localhost] ***************************************************************
+
+TASK [Set create master env variables] *****************************************
+skipping: [localhost]
+
+TASK [Set create workser env variables] ****************************************
+changed: [localhost]
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=1    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+
+[WARNING]: Found both group and host with same name: localhost
+[DEPRECATION WARNING]: "include" is deprecated, use include_tasks/import_tasks 
+instead. See https://docs.ansible.com/ansible-
+core/2.14/user_guide/playbooks_reuse_includes.html for details. This feature 
+will be removed in version 2.16. Deprecation warnings can be disabled by 
+setting deprecation_warnings=False in ansible.cfg.
+
+PLAY [localhost] ***************************************************************
+
+TASK [Set global variables] ****************************************************
+ok: [localhost]
+
+TASK [Set vm local variables] **************************************************
+ok: [localhost]
+
+TASK [Set subnet inside virbr] *************************************************
+ok: [localhost]
+
+TASK [Set ip] ******************************************************************
+ok: [localhost]
+
+TASK [Set FQDN] ****************************************************************
+ok: [localhost]
+
+TASK [Set REALM] ***************************************************************
+ok: [localhost]
+
+TASK [Set vm] ******************************************************************
+ok: [localhost]
+
+TASK [Create ansible group for new hosts] **************************************
+changed: [localhost]
+
+TASK [Delete ssh keys for template] ********************************************
+changed: [localhost]
+
+TASK [Delete ssh keys for ip] **************************************************
+changed: [localhost]
+
+TASK [Create ansible group for ipa server] *************************************
+changed: [localhost]
+
+TASK [Create data directory] ***************************************************
+changed: [localhost]
+
+TASK [Clone template] **********************************************************
+changed: [localhost]
+
+TASK [Change rootvg size] ******************************************************
+changed: [localhost]
+
+TASK [Set vcpus] ***************************************************************
+changed: [localhost]
+
+TASK [Set max memory] **********************************************************
+changed: [localhost]
+
+TASK [Set more memory] *********************************************************
+changed: [localhost]
+
+TASK [Start machine] ***********************************************************
+changed: [localhost]
+
+PLAY [basevm] ******************************************************************
+
+TASK [pause] *******************************************************************
+Pausing for 35 seconds
+(ctrl+C then 'C' = continue early, ctrl+C then 'A' = abort)
+ok: [basevm]
+
+TASK [Set global variables] ****************************************************
+ok: [basevm]
+
+TASK [Set vm local variables] **************************************************
+ok: [basevm]
+
+TASK [Set subnet inside virbr] *************************************************
+ok: [basevm]
+
+TASK [Set ip] ******************************************************************
+ok: [basevm]
+
+TASK [Set FQDN] ****************************************************************
+ok: [basevm]
+
+TASK [Set REALM] ***************************************************************
+ok: [basevm]
+
+TASK [Set vm] ******************************************************************
+ok: [basevm]
+
+TASK [Change hostname] *********************************************************
+changed: [basevm]
+
+TASK [Add hosts to hostname] ***************************************************
+changed: [basevm]
+
+TASK [Resize partition] ********************************************************
+changed: [basevm]
+
+TASK [Partprobe disks] *********************************************************
+changed: [basevm]
+
+TASK [PV resize] ***************************************************************
+changed: [basevm]
+
+TASK [Add an Ethernet connection with static IP configuration] *****************
+changed: [basevm]
+
+TASK [Update packages] *********************************************************
+changed: [basevm]
+
+TASK [Install additional packages] *********************************************
+changed: [basevm]
+
+TASK [Update sshd config - part 1] *********************************************
+changed: [basevm]
+
+TASK [Update sshd config - part 2] *********************************************
+changed: [basevm]
+
+TASK [Update ssh config - non strict host checking] ****************************
+changed: [basevm]
+
+TASK [Update ssh config - GSSAPI] **********************************************
+changed: [basevm]
+
+TASK [Set timezone to Prague] **************************************************
+changed: [basevm]
+
+PLAY [localhost] ***************************************************************
+
+TASK [Set global variables] ****************************************************
+ok: [localhost]
+
+TASK [Set vm local variables] **************************************************
+ok: [localhost]
+
+TASK [Set subnet inside virbr] *************************************************
+ok: [localhost]
+
+TASK [Set ip] ******************************************************************
+ok: [localhost]
+
+TASK [Set FQDN] ****************************************************************
+ok: [localhost]
+
+TASK [Set REALM] ***************************************************************
+ok: [localhost]
+
+TASK [Set vm] ******************************************************************
+ok: [localhost]
+
+TASK [Shutdown host] ***********************************************************
+changed: [localhost]
+
+TASK [pause] *******************************************************************
+Pausing for 5 seconds
+(ctrl+C then 'C' = continue early, ctrl+C then 'A' = abort)
+ok: [localhost]
+
+TASK [Destroy domain] **********************************************************
+fatal: [localhost]: FAILED! => {"changed": true, "cmd": "virsh destroy worker03.class.syscallx86.com", "delta": "0:00:00.081483", "end": "2025-07-31 15:30:11.538388", "msg": "non-zero return code", "rc": 1, "start": "2025-07-31 15:30:11.456905", "stderr": "error: Failed to destroy domain 'worker03.class.syscallx86.com'\nerror: Requested operation is not valid: domain is not running", "stderr_lines": ["error: Failed to destroy domain 'worker03.class.syscallx86.com'", "error: Requested operation is not valid: domain is not running"], "stdout": "", "stdout_lines": []}
+...ignoring
+
+TASK [Change network configuration] ********************************************
+changed: [localhost]
+
+TASK [Change ovs bridge for targe vm] ******************************************
+changed: [localhost]
+
+TASK [Start domain] ************************************************************
+changed: [localhost]
+
+PLAY [newhost] *****************************************************************
+
+TASK [pause] *******************************************************************
+Pausing for 25 seconds
+(ctrl+C then 'C' = continue early, ctrl+C then 'A' = abort)
+ok: [10.4.0.83]
+
+TASK [Set global variables] ****************************************************
+ok: [10.4.0.83]
+
+TASK [Set vm local variables] **************************************************
+ok: [10.4.0.83]
+
+TASK [Set subnet inside virbr] *************************************************
+ok: [10.4.0.83]
+
+TASK [Set ip] ******************************************************************
+ok: [10.4.0.83]
+
+TASK [Set FQDN] ****************************************************************
+ok: [10.4.0.83]
+
+TASK [Set REALM] ***************************************************************
+ok: [10.4.0.83]
+
+TASK [Set vm] ******************************************************************
+ok: [10.4.0.83]
+
+TASK [Join machine to IPA domain] **********************************************
+changed: [10.4.0.83]
+
+PLAY RECAP *********************************************************************
+10.4.0.83                  : ok=9    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+basevm                     : ok=21   changed=13   unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+localhost                  : ok=31   changed=16   unreachable=0    failed=0    skipped=0    rescued=0    ignored=1   
+
+[WARNING]: Found both group and host with same name: localhost
+[DEPRECATION WARNING]: "include" is deprecated, use include_tasks/import_tasks 
+instead. See https://docs.ansible.com/ansible-
+core/2.14/user_guide/playbooks_reuse_includes.html for details. This feature 
+will be removed in version 2.16. Deprecation warnings can be disabled by 
+setting deprecation_warnings=False in ansible.cfg.
+
+PLAY [localhost] ***************************************************************
+
+TASK [Set global variables] ****************************************************
+ok: [localhost]
+
+TASK [Set vm local variables] **************************************************
+ok: [localhost]
+
+TASK [Set subnet inside virbr] *************************************************
+ok: [localhost]
+
+TASK [Set ip] ******************************************************************
+ok: [localhost]
+
+TASK [Set FQDN] ****************************************************************
+ok: [localhost]
+
+TASK [Set REALM] ***************************************************************
+ok: [localhost]
+
+TASK [Set vm] ******************************************************************
+ok: [localhost]
+
+TASK [meta] ********************************************************************
+skipping: [localhost]
+
+TASK [Create snapshot for the host] ********************************************
+changed: [localhost]
+
+TASK [Create ansible group for new hosts] **************************************
+changed: [localhost]
+
+TASK [Create ansible group for new hosts] **************************************
+changed: [localhost]
+
+PLAY [master] ******************************************************************
+
+TASK [Set global variables] ****************************************************
+ok: [master01.class.syscallx86.com]
+
+TASK [Set vm local variables] **************************************************
+ok: [master01.class.syscallx86.com]
+
+TASK [Set subnet inside virbr] *************************************************
+ok: [master01.class.syscallx86.com]
+
+TASK [Set ip] ******************************************************************
+ok: [master01.class.syscallx86.com]
+
+TASK [Set FQDN] ****************************************************************
+ok: [master01.class.syscallx86.com]
+
+TASK [Set REALM] ***************************************************************
+ok: [master01.class.syscallx86.com]
+
+TASK [Set vm] ******************************************************************
+ok: [master01.class.syscallx86.com]
+
+TASK [Create bootstrap token] **************************************************
+changed: [master01.class.syscallx86.com]
+
+TASK [Add K8S Token to dummy host] *********************************************
+changed: [master01.class.syscallx86.com]
+
+PLAY [newhost] *****************************************************************
+
+TASK [Set global variables] ****************************************************
+ok: [10.4.0.83]
+
+TASK [Set vm local variables] **************************************************
+ok: [10.4.0.83]
+
+TASK [Set subnet inside virbr] *************************************************
+ok: [10.4.0.83]
+
+TASK [Set ip] ******************************************************************
+ok: [10.4.0.83]
+
+TASK [Set FQDN] ****************************************************************
+ok: [10.4.0.83]
+
+TASK [Set REALM] ***************************************************************
+ok: [10.4.0.83]
+
+TASK [Set vm] ******************************************************************
+ok: [10.4.0.83]
+
+TASK [Restart chronyd] *********************************************************
+changed: [10.4.0.83]
+
+TASK [Disable SElinux] *********************************************************
+changed: [10.4.0.83]
+
+TASK [Make /etc/kubernetes directory and change the selinux context] ***********
+changed: [10.4.0.83]
+
+TASK [Make /var/lib/etcd and change the selinux context] ***********************
+changed: [10.4.0.83]
+
+TASK [Restore contexts] ********************************************************
+changed: [10.4.0.83]
+
+TASK [Disable swap] ************************************************************
+changed: [10.4.0.83]
+
+TASK [Disable firewalld] *******************************************************
+changed: [10.4.0.83]
+
+TASK [Install ovs] *************************************************************
+changed: [10.4.0.83]
+
+TASK [Copy kubernetes repo definition to yum dir] ******************************
+changed: [10.4.0.83]
+
+TASK [Copy crio repo definition to yum dir] ************************************
+changed: [10.4.0.83]
+
+TASK [Install kubeadm, crio and wget] ******************************************
+changed: [10.4.0.83]
+
+TASK [Restart and network manager] *********************************************
+changed: [10.4.0.83]
+
+TASK [Start and enable openvswitch] ********************************************
+changed: [10.4.0.83]
+
+TASK [Enable crio] *************************************************************
+changed: [10.4.0.83]
+
+TASK [Add bridge] **************************************************************
+changed: [10.4.0.83]
+
+TASK [Add bridge - new port] ***************************************************
+changed: [10.4.0.83]
+
+TASK [Add bridge - slave] ******************************************************
+changed: [10.4.0.83]
+
+TASK [Add bridge - second iface] ***********************************************
+changed: [10.4.0.83]
+
+TASK [Add bridge - add ethernet iface] *****************************************
+changed: [10.4.0.83]
+
+TASK [Set no to autoconnect for ethernet] **************************************
+changed: [10.4.0.83]
+
+TASK [Set autoconnect to bridge] ***********************************************
+changed: [10.4.0.83]
+
+TASK [Set autoconnect to bridge] ***********************************************
+changed: [10.4.0.83]
+
+TASK [Set autoconnect to bridge] ***********************************************
+changed: [10.4.0.83]
+
+TASK [Set autoconnect to bridge] ***********************************************
+changed: [10.4.0.83]
+
+TASK [Set autoconnect to bridge] ***********************************************
+changed: [10.4.0.83]
+
+TASK [Change ovn bridge] *******************************************************
+changed: [10.4.0.83]
+
+TASK [Change ovn bridge] *******************************************************
+changed: [10.4.0.83]
+
+TASK [Change ovn bridge] *******************************************************
+changed: [10.4.0.83]
+
+TASK [Change ovn bridge] *******************************************************
+changed: [10.4.0.83]
+
+TASK [Change ovn bridge] *******************************************************
+changed: [10.4.0.83]
+
+TASK [Change ovn bridge] *******************************************************
+changed: [10.4.0.83]
+
+TASK [Change ovn bridge] *******************************************************
+changed: [10.4.0.83]
+
+TASK [Modules for crio] ********************************************************
+changed: [10.4.0.83]
+
+TASK [Restart server asynchronously] *******************************************
+changed: [10.4.0.83]
+
+PLAY [localhost] ***************************************************************
+
+TASK [Delay for 30 - server goes up] *******************************************
+Pausing for 30 seconds
+(ctrl+C then 'C' = continue early, ctrl+C then 'A' = abort)
+ok: [localhost]
+
+PLAY RECAP *********************************************************************
+10.4.0.83                  : ok=41   changed=34   unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+localhost                  : ok=11   changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+master01.class.syscallx86.com : ok=9    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+[WARNING]: Found both group and host with same name: localhost
+[DEPRECATION WARNING]: "include" is deprecated, use include_tasks/import_tasks 
+instead. See https://docs.ansible.com/ansible-
+core/2.14/user_guide/playbooks_reuse_includes.html for details. This feature 
+will be removed in version 2.16. Deprecation warnings can be disabled by 
+setting deprecation_warnings=False in ansible.cfg.
+
+PLAY [localhost] ***************************************************************
+
+TASK [Set global variables] ****************************************************
+ok: [localhost]
+
+TASK [Set vm local variables] **************************************************
+ok: [localhost]
+
+TASK [Set subnet inside virbr] *************************************************
+ok: [localhost]
+
+TASK [Set ip] ******************************************************************
+ok: [localhost]
+
+TASK [Set FQDN] ****************************************************************
+ok: [localhost]
+
+TASK [Set REALM] ***************************************************************
+ok: [localhost]
+
+TASK [Set vm] ******************************************************************
+ok: [localhost]
+
+TASK [meta] ********************************************************************
+skipping: [localhost]
+
+TASK [Create snapshot for the host] ********************************************
+changed: [localhost]
+
+TASK [Create ansible group for new hosts] **************************************
+changed: [localhost]
+
+TASK [Create ansible group for new hosts] **************************************
+changed: [localhost]
+
+PLAY [master] ******************************************************************
+
+TASK [Set global variables] ****************************************************
+ok: [master01.class.syscallx86.com]
+
+TASK [Set vm local variables] **************************************************
+ok: [master01.class.syscallx86.com]
+
+TASK [Set subnet inside virbr] *************************************************
+ok: [master01.class.syscallx86.com]
+
+TASK [Set ip] ******************************************************************
+ok: [master01.class.syscallx86.com]
+
+TASK [Set FQDN] ****************************************************************
+ok: [master01.class.syscallx86.com]
+
+TASK [Set REALM] ***************************************************************
+ok: [master01.class.syscallx86.com]
+
+TASK [Set vm] ******************************************************************
+ok: [master01.class.syscallx86.com]
+
+TASK [Create bootstrap token] **************************************************
+changed: [master01.class.syscallx86.com]
+
+TASK [Add K8S Token to dummy host] *********************************************
+changed: [master01.class.syscallx86.com]
+
+PLAY [newhost] *****************************************************************
+
+TASK [Set global variables] ****************************************************
+ok: [10.4.0.83]
+
+TASK [Set vm local variables] **************************************************
+ok: [10.4.0.83]
+
+TASK [Set subnet inside virbr] *************************************************
+ok: [10.4.0.83]
+
+TASK [Set ip] ******************************************************************
+ok: [10.4.0.83]
+
+TASK [Set FQDN] ****************************************************************
+ok: [10.4.0.83]
+
+TASK [Set REALM] ***************************************************************
+ok: [10.4.0.83]
+
+TASK [Set vm] ******************************************************************
+ok: [10.4.0.83]
+
+TASK [Copy ssh keys for root - HACK - must be changed!] ************************
+changed: [10.4.0.83]
+
+TASK [Copy ssh keys for root - HACK - must be changed! - changing perm] ********
+changed: [10.4.0.83]
+
+TASK [Get token file] **********************************************************
+changed: [10.4.0.83]
+
+TASK [Get token] ***************************************************************
+changed: [10.4.0.83]
+
+TASK [Get CA token] ************************************************************
+changed: [10.4.0.83]
+
+TASK [Add openvswitdh bridge] **************************************************
+changed: [10.4.0.83]
+
+TASK [Restart openvswitch] *****************************************************
+changed: [10.4.0.83]
+
+TASK [Enable kubelet] **********************************************************
+changed: [10.4.0.83]
+
+TASK [Join node to kubernetes cluster] *****************************************
+changed: [10.4.0.83]
+
+TASK [Restart kubelet] *********************************************************
+changed: [10.4.0.83]
+
+TASK [Create .kube directory] **************************************************
+changed: [10.4.0.83]
+
+TASK [Copy cfg to .kube dir] ***************************************************
+changed: [10.4.0.83]
+
+TASK [Change ownership to kube directory] **************************************
+changed: [10.4.0.83]
+
+TASK [Label node as a worker] **************************************************
+changed: [10.4.0.83]
+
+PLAY RECAP *********************************************************************
+10.4.0.83                  : ok=21   changed=14   unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+localhost                  : ok=10   changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+master01.class.syscallx86.com : ok=9    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+  - Building worker 4
+[WARNING]: Found both group and host with same name: localhost
+
+PLAY [localhost] ***************************************************************
+
+TASK [Set create master env variables] *****************************************
+skipping: [localhost]
+
+TASK [Set create workser env variables] ****************************************
+changed: [localhost]
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=1    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+
+[WARNING]: Found both group and host with same name: localhost
+[DEPRECATION WARNING]: "include" is deprecated, use include_tasks/import_tasks 
+instead. See https://docs.ansible.com/ansible-
+core/2.14/user_guide/playbooks_reuse_includes.html for details. This feature 
+will be removed in version 2.16. Deprecation warnings can be disabled by 
+setting deprecation_warnings=False in ansible.cfg.
+
+PLAY [localhost] ***************************************************************
+
+TASK [Set global variables] ****************************************************
+ok: [localhost]
+
+TASK [Set vm local variables] **************************************************
+ok: [localhost]
+
+TASK [Set subnet inside virbr] *************************************************
+ok: [localhost]
+
+TASK [Set ip] ******************************************************************
+ok: [localhost]
+
+TASK [Set FQDN] ****************************************************************
+ok: [localhost]
+
+TASK [Set REALM] ***************************************************************
+ok: [localhost]
+
+TASK [Set vm] ******************************************************************
+ok: [localhost]
+
+TASK [Create ansible group for new hosts] **************************************
+changed: [localhost]
+
+TASK [Delete ssh keys for template] ********************************************
+changed: [localhost]
+
+TASK [Delete ssh keys for ip] **************************************************
+changed: [localhost]
+
+TASK [Create ansible group for ipa server] *************************************
+changed: [localhost]
+
+TASK [Create data directory] ***************************************************
+changed: [localhost]
+
+TASK [Clone template] **********************************************************
+changed: [localhost]
+
+TASK [Change rootvg size] ******************************************************
+changed: [localhost]
+
+TASK [Set vcpus] ***************************************************************
+changed: [localhost]
+
+TASK [Set max memory] **********************************************************
+changed: [localhost]
+
+TASK [Set more memory] *********************************************************
+changed: [localhost]
+
+TASK [Start machine] ***********************************************************
+changed: [localhost]
+
+PLAY [basevm] ******************************************************************
+
+TASK [pause] *******************************************************************
+Pausing for 35 seconds
+(ctrl+C then 'C' = continue early, ctrl+C then 'A' = abort)
+ok: [basevm]
+
+TASK [Set global variables] ****************************************************
+ok: [basevm]
+
+TASK [Set vm local variables] **************************************************
+ok: [basevm]
+
+TASK [Set subnet inside virbr] *************************************************
+ok: [basevm]
+
+TASK [Set ip] ******************************************************************
+ok: [basevm]
+
+TASK [Set FQDN] ****************************************************************
+ok: [basevm]
+
+TASK [Set REALM] ***************************************************************
+ok: [basevm]
+
+TASK [Set vm] ******************************************************************
+ok: [basevm]
+
+TASK [Change hostname] *********************************************************
+changed: [basevm]
+
+TASK [Add hosts to hostname] ***************************************************
+changed: [basevm]
+
+TASK [Resize partition] ********************************************************
+changed: [basevm]
+
+TASK [Partprobe disks] *********************************************************
+changed: [basevm]
+
+TASK [PV resize] ***************************************************************
+changed: [basevm]
+
+TASK [Add an Ethernet connection with static IP configuration] *****************
+changed: [basevm]
+
+TASK [Update packages] *********************************************************
+changed: [basevm]
+
+TASK [Install additional packages] *********************************************
+changed: [basevm]
+
+TASK [Update sshd config - part 1] *********************************************
+changed: [basevm]
+
+TASK [Update sshd config - part 2] *********************************************
+changed: [basevm]
+
+TASK [Update ssh config - non strict host checking] ****************************
+changed: [basevm]
+
+TASK [Update ssh config - GSSAPI] **********************************************
+changed: [basevm]
+
+TASK [Set timezone to Prague] **************************************************
+changed: [basevm]
+
+PLAY [localhost] ***************************************************************
+
+TASK [Set global variables] ****************************************************
+ok: [localhost]
+
+TASK [Set vm local variables] **************************************************
+ok: [localhost]
+
+TASK [Set subnet inside virbr] *************************************************
+ok: [localhost]
+
+TASK [Set ip] ******************************************************************
+ok: [localhost]
+
+TASK [Set FQDN] ****************************************************************
+ok: [localhost]
+
+TASK [Set REALM] ***************************************************************
+ok: [localhost]
+
+TASK [Set vm] ******************************************************************
+ok: [localhost]
+
+TASK [Shutdown host] ***********************************************************
+changed: [localhost]
+
+TASK [pause] *******************************************************************
+Pausing for 5 seconds
+(ctrl+C then 'C' = continue early, ctrl+C then 'A' = abort)
+ok: [localhost]
+
+TASK [Destroy domain] **********************************************************
+fatal: [localhost]: FAILED! => {"changed": true, "cmd": "virsh destroy worker04.class.syscallx86.com", "delta": "0:00:00.078280", "end": "2025-07-31 15:36:54.710718", "msg": "non-zero return code", "rc": 1, "start": "2025-07-31 15:36:54.632438", "stderr": "error: Failed to destroy domain 'worker04.class.syscallx86.com'\nerror: Requested operation is not valid: domain is not running", "stderr_lines": ["error: Failed to destroy domain 'worker04.class.syscallx86.com'", "error: Requested operation is not valid: domain is not running"], "stdout": "", "stdout_lines": []}
+...ignoring
+
+TASK [Change network configuration] ********************************************
+changed: [localhost]
+
+TASK [Change ovs bridge for targe vm] ******************************************
+changed: [localhost]
+
+TASK [Start domain] ************************************************************
+changed: [localhost]
+
+PLAY [newhost] *****************************************************************
+
+TASK [pause] *******************************************************************
+Pausing for 25 seconds
+(ctrl+C then 'C' = continue early, ctrl+C then 'A' = abort)
+ok: [10.4.0.84]
+
+TASK [Set global variables] ****************************************************
+ok: [10.4.0.84]
+
+TASK [Set vm local variables] **************************************************
+ok: [10.4.0.84]
+
+TASK [Set subnet inside virbr] *************************************************
+ok: [10.4.0.84]
+
+TASK [Set ip] ******************************************************************
+ok: [10.4.0.84]
+
+TASK [Set FQDN] ****************************************************************
+ok: [10.4.0.84]
+
+TASK [Set REALM] ***************************************************************
+ok: [10.4.0.84]
+
+TASK [Set vm] ******************************************************************
+ok: [10.4.0.84]
+
+TASK [Join machine to IPA domain] **********************************************
+changed: [10.4.0.84]
+
+PLAY RECAP *********************************************************************
+10.4.0.84                  : ok=9    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+basevm                     : ok=21   changed=13   unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+localhost                  : ok=31   changed=16   unreachable=0    failed=0    skipped=0    rescued=0    ignored=1   
+
+[WARNING]: Found both group and host with same name: localhost
+[DEPRECATION WARNING]: "include" is deprecated, use include_tasks/import_tasks 
+instead. See https://docs.ansible.com/ansible-
+core/2.14/user_guide/playbooks_reuse_includes.html for details. This feature 
+will be removed in version 2.16. Deprecation warnings can be disabled by 
+setting deprecation_warnings=False in ansible.cfg.
+
+PLAY [localhost] ***************************************************************
+
+TASK [Set global variables] ****************************************************
+ok: [localhost]
+
+TASK [Set vm local variables] **************************************************
+ok: [localhost]
+
+TASK [Set subnet inside virbr] *************************************************
+ok: [localhost]
+
+TASK [Set ip] ******************************************************************
+ok: [localhost]
+
+TASK [Set FQDN] ****************************************************************
+ok: [localhost]
+
+TASK [Set REALM] ***************************************************************
+ok: [localhost]
+
+TASK [Set vm] ******************************************************************
+ok: [localhost]
+
+TASK [meta] ********************************************************************
+skipping: [localhost]
+
+TASK [Create snapshot for the host] ********************************************
+changed: [localhost]
+
+TASK [Create ansible group for new hosts] **************************************
+changed: [localhost]
+
+TASK [Create ansible group for new hosts] **************************************
+changed: [localhost]
+
+PLAY [master] ******************************************************************
+
+TASK [Set global variables] ****************************************************
+ok: [master01.class.syscallx86.com]
+
+TASK [Set vm local variables] **************************************************
+ok: [master01.class.syscallx86.com]
+
+TASK [Set subnet inside virbr] *************************************************
+ok: [master01.class.syscallx86.com]
+
+TASK [Set ip] ******************************************************************
+ok: [master01.class.syscallx86.com]
+
+TASK [Set FQDN] ****************************************************************
+ok: [master01.class.syscallx86.com]
+
+TASK [Set REALM] ***************************************************************
+ok: [master01.class.syscallx86.com]
+
+TASK [Set vm] ******************************************************************
+ok: [master01.class.syscallx86.com]
+
+TASK [Create bootstrap token] **************************************************
+changed: [master01.class.syscallx86.com]
+
+TASK [Add K8S Token to dummy host] *********************************************
+changed: [master01.class.syscallx86.com]
+
+PLAY [newhost] *****************************************************************
+
+TASK [Set global variables] ****************************************************
+ok: [10.4.0.84]
+
+TASK [Set vm local variables] **************************************************
+ok: [10.4.0.84]
+
+TASK [Set subnet inside virbr] *************************************************
+ok: [10.4.0.84]
+
+TASK [Set ip] ******************************************************************
+ok: [10.4.0.84]
+
+TASK [Set FQDN] ****************************************************************
+ok: [10.4.0.84]
+
+TASK [Set REALM] ***************************************************************
+ok: [10.4.0.84]
+
+TASK [Set vm] ******************************************************************
+ok: [10.4.0.84]
+
+TASK [Restart chronyd] *********************************************************
+changed: [10.4.0.84]
+
+TASK [Disable SElinux] *********************************************************
+changed: [10.4.0.84]
+
+TASK [Make /etc/kubernetes directory and change the selinux context] ***********
+changed: [10.4.0.84]
+
+TASK [Make /var/lib/etcd and change the selinux context] ***********************
+changed: [10.4.0.84]
+
+TASK [Restore contexts] ********************************************************
+changed: [10.4.0.84]
+
+TASK [Disable swap] ************************************************************
+changed: [10.4.0.84]
+
+TASK [Disable firewalld] *******************************************************
+changed: [10.4.0.84]
+
+TASK [Install ovs] *************************************************************
+changed: [10.4.0.84]
+
+TASK [Copy kubernetes repo definition to yum dir] ******************************
+changed: [10.4.0.84]
+
+TASK [Copy crio repo definition to yum dir] ************************************
+changed: [10.4.0.84]
+
+TASK [Install kubeadm, crio and wget] ******************************************
+changed: [10.4.0.84]
+
+TASK [Restart and network manager] *********************************************
+changed: [10.4.0.84]
+
+TASK [Start and enable openvswitch] ********************************************
+changed: [10.4.0.84]
+
+TASK [Enable crio] *************************************************************
+changed: [10.4.0.84]
+
+TASK [Add bridge] **************************************************************
+changed: [10.4.0.84]
+
+TASK [Add bridge - new port] ***************************************************
+changed: [10.4.0.84]
+
+TASK [Add bridge - slave] ******************************************************
+changed: [10.4.0.84]
+
+TASK [Add bridge - second iface] ***********************************************
+changed: [10.4.0.84]
+
+TASK [Add bridge - add ethernet iface] *****************************************
+changed: [10.4.0.84]
+
+TASK [Set no to autoconnect for ethernet] **************************************
+changed: [10.4.0.84]
+
+TASK [Set autoconnect to bridge] ***********************************************
+changed: [10.4.0.84]
+
+TASK [Set autoconnect to bridge] ***********************************************
+changed: [10.4.0.84]
+
+TASK [Set autoconnect to bridge] ***********************************************
+changed: [10.4.0.84]
+
+TASK [Set autoconnect to bridge] ***********************************************
+changed: [10.4.0.84]
+
+TASK [Set autoconnect to bridge] ***********************************************
+changed: [10.4.0.84]
+
+TASK [Change ovn bridge] *******************************************************
+changed: [10.4.0.84]
+
+TASK [Change ovn bridge] *******************************************************
+changed: [10.4.0.84]
+
+TASK [Change ovn bridge] *******************************************************
+changed: [10.4.0.84]
+
+TASK [Change ovn bridge] *******************************************************
+changed: [10.4.0.84]
+
+TASK [Change ovn bridge] *******************************************************
+changed: [10.4.0.84]
+
+TASK [Change ovn bridge] *******************************************************
+changed: [10.4.0.84]
+
+TASK [Change ovn bridge] *******************************************************
+changed: [10.4.0.84]
+
+TASK [Modules for crio] ********************************************************
+changed: [10.4.0.84]
+
+TASK [Restart server asynchronously] *******************************************
+changed: [10.4.0.84]
+
+PLAY [localhost] ***************************************************************
+
+TASK [Delay for 30 - server goes up] *******************************************
+Pausing for 30 seconds
+(ctrl+C then 'C' = continue early, ctrl+C then 'A' = abort)
+ok: [localhost]
+
+PLAY RECAP *********************************************************************
+10.4.0.84                  : ok=41   changed=34   unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+localhost                  : ok=11   changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+master01.class.syscallx86.com : ok=9    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+[WARNING]: Found both group and host with same name: localhost
+[DEPRECATION WARNING]: "include" is deprecated, use include_tasks/import_tasks 
+instead. See https://docs.ansible.com/ansible-
+core/2.14/user_guide/playbooks_reuse_includes.html for details. This feature 
+will be removed in version 2.16. Deprecation warnings can be disabled by 
+setting deprecation_warnings=False in ansible.cfg.
+
+PLAY [localhost] ***************************************************************
+
+TASK [Set global variables] ****************************************************
+ok: [localhost]
+
+TASK [Set vm local variables] **************************************************
+ok: [localhost]
+
+TASK [Set subnet inside virbr] *************************************************
+ok: [localhost]
+
+TASK [Set ip] ******************************************************************
+ok: [localhost]
+
+TASK [Set FQDN] ****************************************************************
+ok: [localhost]
+
+TASK [Set REALM] ***************************************************************
+ok: [localhost]
+
+TASK [Set vm] ******************************************************************
+ok: [localhost]
+
+TASK [meta] ********************************************************************
+skipping: [localhost]
+
+TASK [Create snapshot for the host] ********************************************
+changed: [localhost]
+
+TASK [Create ansible group for new hosts] **************************************
+changed: [localhost]
+
+TASK [Create ansible group for new hosts] **************************************
+changed: [localhost]
+
+PLAY [master] ******************************************************************
+
+TASK [Set global variables] ****************************************************
+ok: [master01.class.syscallx86.com]
+
+TASK [Set vm local variables] **************************************************
+ok: [master01.class.syscallx86.com]
+
+TASK [Set subnet inside virbr] *************************************************
+ok: [master01.class.syscallx86.com]
+
+TASK [Set ip] ******************************************************************
+ok: [master01.class.syscallx86.com]
+
+TASK [Set FQDN] ****************************************************************
+ok: [master01.class.syscallx86.com]
+
+TASK [Set REALM] ***************************************************************
+ok: [master01.class.syscallx86.com]
+
+TASK [Set vm] ******************************************************************
+ok: [master01.class.syscallx86.com]
+
+TASK [Create bootstrap token] **************************************************
+changed: [master01.class.syscallx86.com]
+
+TASK [Add K8S Token to dummy host] *********************************************
+changed: [master01.class.syscallx86.com]
+
+PLAY [newhost] *****************************************************************
+
+TASK [Set global variables] ****************************************************
+ok: [10.4.0.84]
+
+TASK [Set vm local variables] **************************************************
+ok: [10.4.0.84]
+
+TASK [Set subnet inside virbr] *************************************************
+ok: [10.4.0.84]
+
+TASK [Set ip] ******************************************************************
+ok: [10.4.0.84]
+
+TASK [Set FQDN] ****************************************************************
+ok: [10.4.0.84]
+
+TASK [Set REALM] ***************************************************************
+ok: [10.4.0.84]
+
+TASK [Set vm] ******************************************************************
+ok: [10.4.0.84]
+
+TASK [Copy ssh keys for root - HACK - must be changed!] ************************
+changed: [10.4.0.84]
+
+TASK [Copy ssh keys for root - HACK - must be changed! - changing perm] ********
+changed: [10.4.0.84]
+
+TASK [Get token file] **********************************************************
+changed: [10.4.0.84]
+
+TASK [Get token] ***************************************************************
+changed: [10.4.0.84]
+
+TASK [Get CA token] ************************************************************
+changed: [10.4.0.84]
+
+TASK [Add openvswitdh bridge] **************************************************
+changed: [10.4.0.84]
+
+TASK [Restart openvswitch] *****************************************************
+changed: [10.4.0.84]
+
+TASK [Enable kubelet] **********************************************************
+changed: [10.4.0.84]
+
+TASK [Join node to kubernetes cluster] *****************************************
+changed: [10.4.0.84]
+
+TASK [Restart kubelet] *********************************************************
+changed: [10.4.0.84]
+
+TASK [Create .kube directory] **************************************************
+changed: [10.4.0.84]
+
+TASK [Copy cfg to .kube dir] ***************************************************
+changed: [10.4.0.84]
+
+TASK [Change ownership to kube directory] **************************************
+changed: [10.4.0.84]
+
+TASK [Label node as a worker] **************************************************
+changed: [10.4.0.84]
+
+PLAY RECAP *********************************************************************
+10.4.0.84                  : ok=21   changed=14   unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+localhost                  : ok=10   changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+master01.class.syscallx86.com : ok=9    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+[WARNING]: Found both group and host with same name: localhost
+[DEPRECATION WARNING]: "include" is deprecated, use include_tasks/import_tasks 
+instead. See https://docs.ansible.com/ansible-
+core/2.14/user_guide/playbooks_reuse_includes.html for details. This feature 
+will be removed in version 2.16. Deprecation warnings can be disabled by 
+setting deprecation_warnings=False in ansible.cfg.
+
+PLAY [localhost] ***************************************************************
+
+TASK [Set global variables] ****************************************************
+ok: [localhost]
+
+TASK [Set vm local variables] **************************************************
+ok: [localhost]
+
+TASK [Set subnet inside virbr] *************************************************
+ok: [localhost]
+
+TASK [Set ip] ******************************************************************
+ok: [localhost]
+
+TASK [Set FQDN] ****************************************************************
+ok: [localhost]
+
+TASK [Set REALM] ***************************************************************
+ok: [localhost]
+
+TASK [Set vm] ******************************************************************
+ok: [localhost]
+
+TASK [Create ansible group for jumphost hosts] *********************************
+changed: [localhost]
+
+TASK [Create ansible group for master hosts] ***********************************
+changed: [localhost]
+
+PLAY [masterhost] **************************************************************
+
+TASK [Set global variables] ****************************************************
+ok: [master01.class.syscallx86.com]
+
+TASK [Set vm local variables] **************************************************
+ok: [master01.class.syscallx86.com]
+
+TASK [Set subnet inside virbr] *************************************************
+ok: [master01.class.syscallx86.com]
+
+TASK [Set ip] ******************************************************************
+ok: [master01.class.syscallx86.com]
+
+TASK [Set FQDN] ****************************************************************
+ok: [master01.class.syscallx86.com]
+
+TASK [Set REALM] ***************************************************************
+ok: [master01.class.syscallx86.com]
+
+TASK [Set vm] ******************************************************************
+ok: [master01.class.syscallx86.com]
+
+TASK [Copy kubernetes cfg] *****************************************************
+ok: [master01.class.syscallx86.com]
+
+PLAY [jumphost] ****************************************************************
+
+TASK [Set global variables] ****************************************************
+ok: [jump.class.syscallx86.com]
+
+TASK [Set vm local variables] **************************************************
+ok: [jump.class.syscallx86.com]
+
+TASK [Set subnet inside virbr] *************************************************
+ok: [jump.class.syscallx86.com]
+
+TASK [Set ip] ******************************************************************
+ok: [jump.class.syscallx86.com]
+
+TASK [Set FQDN] ****************************************************************
+ok: [jump.class.syscallx86.com]
+
+TASK [Set REALM] ***************************************************************
+ok: [jump.class.syscallx86.com]
+
+TASK [Set vm] ******************************************************************
+ok: [jump.class.syscallx86.com]
+
+TASK [Make kube config dir for student] ****************************************
+changed: [jump.class.syscallx86.com]
+
+TASK [copy file from local to machine2] ****************************************
+ok: [jump.class.syscallx86.com]
+
+TASK [Change owner of kube config] *********************************************
+changed: [jump.class.syscallx86.com]
+
+PLAY [localhost] ***************************************************************
+
+TASK [Set global variables] ****************************************************
+ok: [localhost]
+
+TASK [Set vm local variables] **************************************************
+ok: [localhost]
+
+TASK [Set subnet inside virbr] *************************************************
+ok: [localhost]
+
+TASK [Set ip] ******************************************************************
+ok: [localhost]
+
+TASK [Set FQDN] ****************************************************************
+ok: [localhost]
+
+TASK [Set REALM] ***************************************************************
+ok: [localhost]
+
+TASK [Set vm] ******************************************************************
+ok: [localhost]
+
+TASK [Remove kubeconfig] *******************************************************
+changed: [localhost]
+
+PLAY RECAP *********************************************************************
+jump.class.syscallx86.com  : ok=10   changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+localhost                  : ok=17   changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+master01.class.syscallx86.com : ok=8    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+

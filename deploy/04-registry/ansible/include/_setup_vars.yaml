@@ -1,0 +1,8 @@
+- name: Set vm local variables
+  set_fact:
+    virbr: "80"
+    netsuffix: "22" 
+    hostname: "registry"
+    rootvg_size: 40
+    disk_size: 21G
+    

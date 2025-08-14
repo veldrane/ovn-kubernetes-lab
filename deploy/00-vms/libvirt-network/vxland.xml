@@ -1,0 +1,19 @@
+<network>
+  <name>vxland</name>
+  <uuid>88115f8c-3e06-8a29-8d8d-e16483583240</uuid>
+  <forward mode='bridge'/>
+  <bridge name='br-vxland0'/>
+  <virtualport type='openvswitch'/>
+  <vlan trunk='yes'>
+    <tag id='1' nativeMode='untagged'/>
+    <tag id='80'/>
+    <tag id='81'/>
+    <tag id='82'/>
+    <tag id='83'/>
+    <tag id='84'/>
+    <tag id='85'/>
+    <tag id='86'/>
+    <tag id='87'/>
+    <tag id='88'/>
+  </vlan>
+</network>

@@ -1,0 +1,6 @@
+- name: Set vm local variables
+  set_fact:
+    netsuffix: "21" 
+    hostname: "build"
+    rootvg_size: 80
+    
