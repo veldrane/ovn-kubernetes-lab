@@ -66,7 +66,7 @@ spec:
       containers:
       # ovn-northd - v3
       - name: ovn-northd
-        image: "registry.class.syscallx86.com/ovn-daemonset-fedora:latest"
+        image: "registry.vxland.syscallx86.com/ovn-kubernetes:v1.1.0"
         imagePullPolicy: "IfNotPresent"
 
         command: ["/root/ovnkube.sh", "run-ovn-northd"]
@@ -100,7 +100,7 @@ spec:
             memory: 300Mi
         env:
         - name: OVN_DAEMONSET_VERSION
-          value: "1.0.0"
+          value: "1.1.0"
         - name: OVN_LOGLEVEL_NORTHD
           value: "-vconsole:dbg -vfile:info"
         - name: K8S_APISERVER
@@ -123,7 +123,7 @@ spec:
       # end of container
 
       - name: ovnkube-master
-        image: "registry.class.syscallx86.com/ovn-daemonset-fedora:latest"
+        image: "registry.vxland.syscallx86.com/ovn-kubernetes:v1.1.0"
         imagePullPolicy: "IfNotPresent"
         
         command: ["/root/ovnkube.sh", "ovn-master"]
@@ -152,7 +152,7 @@ spec:
             memory: 300Mi
         env:
         - name: OVN_DAEMONSET_VERSION
-          value: "1.0.0"
+          value: "1.1.0"
         - name: OVNKUBE_LOGLEVEL
           value: "5"
         - name: OVNKUBE_LOGFILE_MAXSIZE

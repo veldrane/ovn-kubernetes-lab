@@ -67,7 +67,7 @@ spec:
 
       # nb-ovsdb - v3
       - name: nb-ovsdb
-        image: "registry.class.syscallx86.com/ovn-daemonset-fedora:latest"
+        image: "registry.vxland.syscallx86.com/ovn-kubernetes:v1.1.0"
         imagePullPolicy: "IfNotPresent"
 
         command: ["/root/ovnkube.sh", "nb-ovsdb"]
@@ -104,7 +104,7 @@ spec:
             memory: 300Mi
         env:
         - name: OVN_DAEMONSET_VERSION
-          value: "1.0.0"
+          value: "1.1.0"
         - name: OVN_LOGLEVEL_NB
           value: "-vconsole:dbg -vfile:info"
         - name: K8S_APISERVER
@@ -138,7 +138,7 @@ spec:
 
       # sb-ovsdb - v3
       - name: sb-ovsdb
-        image: "registry.class.syscallx86.com/ovn-daemonset-fedora:latest"
+        image: "registry.vxland.syscallx86.com/ovn-kubernetes:v1.1.0"
         imagePullPolicy: "IfNotPresent"
 
         command: ["/root/ovnkube.sh", "sb-ovsdb"]
@@ -175,7 +175,7 @@ spec:
             memory: 300Mi
         env:
         - name: OVN_DAEMONSET_VERSION
-          value: "1.0.0"
+          value: "1.1.0"
         - name: OVN_LOGLEVEL_SB
           value: "-vconsole:dbg -vfile:info"
         - name: K8S_APISERVER

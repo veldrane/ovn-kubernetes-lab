@@ -35,7 +35,7 @@ spec:
       containers:
       
       - name: ovnkube-node
-        image: "registry.class.syscallx86.com/ovn-daemonset-fedora:latest"
+        image: "registry.vxland.syscallx86.com/ovn-kubernetes:v1.1.0"
         imagePullPolicy: "IfNotPresent"
         
         command: ["/root/ovnkube.sh", "ovn-node"]
@@ -92,7 +92,7 @@ spec:
             memory: 300Mi
         env:
         - name: OVN_DAEMONSET_VERSION
-          value: "1.0.0"
+          value: "1.1.0"
         - name: OVNKUBE_LOGLEVEL
           value: "5"
         - name: OVNKUBE_LOGFILE_MAXSIZE
@@ -230,7 +230,7 @@ spec:
           periodSeconds: 60
       
       - name: ovn-controller
-        image: "registry.class.syscallx86.com/ovn-daemonset-fedora:latest"
+        image: "registry.vxland.syscallx86.com/ovn-kubernetes:v1.1.0"
         imagePullPolicy: "IfNotPresent"
 
         command: ["/root/ovnkube.sh", "ovn-controller"]
@@ -263,7 +263,7 @@ spec:
             memory: 300Mi
         env:
         - name: OVN_DAEMONSET_VERSION
-          value: "1.0.0"
+          value: "1.1.0"
         - name: OVN_LOGLEVEL_CONTROLLER
           value: "-vconsole:dbg"
         - name: K8S_APISERVER
@@ -291,7 +291,7 @@ spec:
 
         # ovs-metrics-exporter - v3
       - name: ovs-metrics-exporter
-        image: "registry.class.syscallx86.com/ovn-daemonset-fedora:latest"
+        image: "registry.vxland.syscallx86.com/ovn-kubernetes:v1.1.0"
         imagePullPolicy: "IfNotPresent"
 
         command: ["/root/ovnkube.sh", "ovs-metrics"]
@@ -318,7 +318,7 @@ spec:
             memory: 300Mi
         env:
         - name: OVN_DAEMONSET_VERSION
-          value: "1.0.0"
+          value: "1.1.0"
         - name: K8S_NODE_IP
           valueFrom:
             fieldRef:
