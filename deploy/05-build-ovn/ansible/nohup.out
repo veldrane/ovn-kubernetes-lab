@@ -1,0 +1,100 @@
+[WARNING]: Found both group and host with same name: localhost
+[DEPRECATION WARNING]: "include" is deprecated, use include_tasks/import_tasks 
+instead. See https://docs.ansible.com/ansible-
+core/2.14/user_guide/playbooks_reuse_includes.html for details. This feature 
+will be removed in version 2.16. Deprecation warnings can be disabled by 
+setting deprecation_warnings=False in ansible.cfg.
+
+PLAY [localhost] ***************************************************************
+
+TASK [Set global variables] ****************************************************
+ok: [localhost]
+
+TASK [Set REALM] ***************************************************************
+ok: [localhost]
+
+TASK [Lookup build hostname record] ********************************************
+changed: [localhost]
+
+TASK [Lookup SRV record] *******************************************************
+changed: [localhost]
+
+TASK [Create ansible group for new hosts] **************************************
+changed: [localhost]
+
+TASK [Create ansible group for new hosts] **************************************
+fatal: [localhost]: FAILED! => {"msg": "The task includes an option with an undefined variable. The error was: 'registry' is undefined. 'registry' is undefined\n\nThe error appears to be in '/root/ovn-kubernetes-lab/deploy/05-build-ovn/ansible/01_build_ovn.yaml': line 25, column 5, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n  - name: \"Create ansible group for new hosts\"\n    ^ here\n"}
+
+NO MORE HOSTS LEFT *************************************************************
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=5    changed=3    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+
+[WARNING]: Found both group and host with same name: localhost
+[DEPRECATION WARNING]: "include" is deprecated, use include_tasks/import_tasks 
+instead. See https://docs.ansible.com/ansible-
+core/2.14/user_guide/playbooks_reuse_includes.html for details. This feature 
+will be removed in version 2.16. Deprecation warnings can be disabled by 
+setting deprecation_warnings=False in ansible.cfg.
+
+PLAY [localhost] ***************************************************************
+
+TASK [Set global variables] ****************************************************
+ok: [localhost]
+
+TASK [Set REALM] ***************************************************************
+ok: [localhost]
+
+TASK [Lookup build hostname record] ********************************************
+changed: [localhost]
+
+TASK [Lookup SRV record] *******************************************************
+changed: [localhost]
+
+TASK [Create ansible group for new hosts] **************************************
+changed: [localhost]
+
+TASK [Revert snapshot for the host] ********************************************
+changed: [localhost]
+
+TASK [Reboot the host] *********************************************************
+changed: [localhost]
+
+TASK [Wait for the host to be ready] *******************************************
+Pausing for 35 seconds
+(ctrl+C then 'C' = continue early, ctrl+C then 'A' = abort)
+ok: [localhost]
+
+PLAY [build] *******************************************************************
+
+TASK [Set global variables] ****************************************************
+ok: [10.8.0.21]
+
+TASK [Lookup build hostname record] ********************************************
+changed: [10.8.0.21]
+
+TASK [Lookup SRV record] *******************************************************
+changed: [10.8.0.21]
+
+TASK [Disable SELinux] *********************************************************
+changed: [10.8.0.21]
+
+TASK [Install dev packages] ****************************************************
+changed: [10.8.0.21]
+
+TASK [Resize root fs] **********************************************************
+changed: [10.8.0.21]
+
+TASK [Resize var fs] ***********************************************************
+changed: [10.8.0.21]
+
+TASK [Prepare build environment] ***********************************************
+changed: [10.8.0.21]
+
+TASK [Push image to registry] **************************************************
+changed: [10.8.0.21]
+
+PLAY RECAP *********************************************************************
+10.8.0.21                  : ok=9    changed=8    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+localhost                  : ok=8    changed=5    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+

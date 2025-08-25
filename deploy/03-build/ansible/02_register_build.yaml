@@ -20,7 +20,6 @@
     shell: virsh snapshot-create-as --domain {{ fqdn }} --name "before-sw"
     ignore_errors: yes
 
-
 - hosts: newhost
   become: true
   gather_facts: no
@@ -35,15 +34,17 @@
   - name: Set post variables
     include: include/_post_vars.yaml
 
-  - name: "Change sshd configuration - password disabled"
-    shell: echo "PasswordAuthentication no" >> /etc/ssh/sshd_config
+  - name: Get the krb5 ticket
+    shell: echo "{{ adminpwd }}" | kinit {{ svcadmin }}
 
-  - name: Customize /etc/hosts
-    shell: sed -i -E "s/ChallengeResponseAuthentication yes/ChallengeResponseAuthentication no/" /etc/ssh/sshd_config.d/04-ipa.conf
+  - name: Add spn to to ipa
+    shell: ipa service-add build/{{- fqdn -}}@{{ realm }}
 
-  - name: Enable tcp forwarding gateway
-    shell: echo "GatewayPorts yes" >> /etc/ssh/sshd_config
+  - name: Get the keytab
+    shell: ipa-getkeytab -p build/{{- fqdn -}}@{{ realm }} -k /tmp/build.keytab 
 
-  - name: "Restart sshd service"
-    shell: systemctl restart sshd
+  - name: Add srv record to ipa
+    shell: ipa dnsrecord-add {{ domain }} _build._tcp --srv-port=22 --srv-priority=0 --srv-weight=100 --srv-target=build
+    
+    
 

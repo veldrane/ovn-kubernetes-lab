@@ -14,3 +14,4 @@
     user_password: "admin123"
     virbr: "80"
     libvirtnet: "vxland"
+    build_snapshot: "ready-to-build"

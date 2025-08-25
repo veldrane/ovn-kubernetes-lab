@@ -1,0 +1,65 @@
+---
+- hosts: localhost
+  become: true
+  gather_facts: no
+  tasks:
+
+  - name: Set global variables
+    include: include/_global_vars.yaml
+
+  - name: Set local variables
+    include: include/_setup_vars.yaml
+
+  - name: Set post variables
+    include: include/_post_vars.yaml
+
+  - name: "Create ansible group for new hosts"
+    add_host: name="{{ ip }}" groups=newhost
+
+  - name: Revert snapshot for the host
+    shell: virsh snapshot-revert --domain {{ fqdn }} --snapshotname "{{ build_snapshot }}"
+
+  - name: Wait for the host to be ready
+    pause:
+      seconds: 10
+
+
+- hosts: newhost
+  become: true
+  gather_facts: no
+  tasks:
+
+  - name: Set global variables
+    include: include/_global_vars.yaml
+
+  - name: Set local variables
+    include: include/_setup_vars.yaml
+
+  - name: Set post variables
+    include: include/_post_vars.yaml
+  
+  - name: Disable SELinux
+    shell: setenforce 0
+
+  - name: Install dev packages
+    shell: yum install -y gcc make autoconf automake libtool pkg-config go clang clang-devel \
+           docker git buildah
+
+  - name: Resize root fs
+    shell: lvresize --resizefs --size +20G /dev/mapper/rootvg-root && resize2fs /dev/mapper/rootvg-root
+
+  - name: Resize var fs
+    shell: lvresize --resizefs --size +10G /dev/mapper/rootvg-var && resize2fs /dev/mapper/rootvg-var
+
+  - name: Prepare build environment
+    shell: |
+      mkdir -p /opt/work/src/github.com/ovn-org &&
+      cd /opt/work/src/github.com/ovn-org &&
+      git clone https://github.com/ovn-org/ovn-kubernetes -b v1.1.0 &&
+      cd /opt/work/src/github.com/ovn-org/ovn-kubernetes/dist/images &&
+      pushd ../../go-controller &&
+      make &&
+      popd &&
+      find ../../go-controller/_output/go/bin/ -maxdepth 1 -type f -exec cp -f {} . \; &&
+      echo "ref: $(git rev-parse  --symbolic-full-name HEAD)  commit: $(git rev-parse  HEAD)" > git_info &&
+      buildah bud -t registry.vxland.syscallx86.com/ovn-kubernetes:v1.1.0 -f Dockerfile.fedora .
