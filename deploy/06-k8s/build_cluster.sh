@@ -6,18 +6,19 @@ cd ansible/
 
 echo "Building vms for student $i"
 echo "  - Building master"
-ansible-playbook 00_prepare_setup.yaml -e "student=0" -e "k8s_role=master" -e "node_index=1"
+export suffix=$(head -c 16 /dev/urandom | sha1sum | cut -c1-6)
+ansible-playbook 00_prepare_setup.yaml -e "student=2" -e "k8s_role=master" -e "node_index=1" -e "suffix=$suffix"
 ansible-playbook 01_prepare_nodes.yaml
 ansible-playbook 02_configure_master.yaml
 ansible-playbook 03_deploy_master.yaml
 for m in $(seq 1 $WORKERS); do
   echo "  - Building worker $m"
-  ansible-playbook 00_prepare_setup.yaml -e "student=0" -e "k8s_role=worker" -e "node_index=$m"
+  ansible-playbook 00_prepare_setup.yaml -e "student=2" -e "k8s_role=worker" -e "node_index=$m" -e "suffix=$suffix"
   ansible-playbook 01_prepare_nodes.yaml
   ansible-playbook 04_configure_worker.yaml
   ansible-playbook 05_deploy_worker.yaml
 done
-ansible-playbook 06_send_cfg.yaml
+#ansible-playbook 06_send_cfg.yaml
 
 
 

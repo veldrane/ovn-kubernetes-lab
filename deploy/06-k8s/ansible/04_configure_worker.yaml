@@ -23,8 +23,12 @@
   - name: "Create ansible group for new hosts"
     add_host: name="{{ ip }}" groups=newhost
 
+  - name: Lookup master hostname record
+    shell: dig +short SRV _{{ srv_name -}}._tcp.{{- domain }} | awk '{print $4}' | sed s/\.$//g
+    register: master
+  
   - name: "Create ansible group for new hosts"
-    add_host: name="{{ master }}" groups=master
+    add_host: name="{{ master.stdout }}" groups=master
 
 - hosts: master
   become: true

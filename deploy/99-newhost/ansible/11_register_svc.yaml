@@ -37,7 +37,7 @@
     shell: ipa service-add {{ srv_name -}}/{{- fqdn -}}@{{ realm }}
 
   - name: Get the keytab
-    shell: ipa-getkeytab -p {{ srv_name -}}/{{- fqdn -}}@{{ realm }} -k /tmp/{{- srv_name -}}.keytab 
+    shell: ipa-getkeytab -p {{ srv_name -}}/{{- fqdn -}}@{{ realm }} -k /etc/{{- srv_name -}}.keytab 
 
   - name: Add srv record to ipa
     shell: ipa dnsrecord-add {{ domain }} _{{ srv_name -}}._tcp --srv-port={{- srv_port }} --srv-priority=0 --srv-weight=100 --srv-target={{- hostname -}}

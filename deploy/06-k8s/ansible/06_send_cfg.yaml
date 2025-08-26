@@ -16,11 +16,15 @@
   - name: "Create ansible group for jumphost hosts"
     add_host: name="{{- jumpserver -}}.{{- domain -}}" groups=jumphost
 
-  - name: "Create ansible group for master hosts"
-    add_host: name="{{- master -}}" groups=masterhost
+  - name: Lookup master hostname record
+    shell: dig +short SRV _{{ srv_name -}}._tcp.{{- domain }} | awk '{print $4}' | sed s/\.$//g
+    register: master
+  
+  - name: "Create ansible group for new hosts"
+    add_host: name="{{ master.stdout }}" groups=master
 
 
-- hosts: masterhost
+- hosts: master
   become: true
   gather_facts: no
   tasks:

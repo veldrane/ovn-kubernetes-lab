@@ -2,14 +2,15 @@
   set_fact:
     virbr: "8{{- student -}}"
     netsuffix: "8{{- node_index -}}" 
-    hostname: "worker{{- student -}}{{ node_index }}"
+    hostname: "wks-{{- suffix -}}-0000{{- node_index -}}"
     rootvg_size: 20
     vcpus: 2
     podnetwork: "10.38.0.0/16"
     svcnetwork: "10.49.0.0/16"
     clusterdom: "cluster.local"
-    master: "master{{- student -}}1.vxland.syscallx86.com"
     bridge_name: "br-ex"
     iface: "enp1s0"
     ip_address: "10.8.{{- student  -}}.8{{- node_index -}}"
     k8s_role: "worker"
+    srv_name: "k8s-000{{- student -}}"
+    srv_port: 6443
