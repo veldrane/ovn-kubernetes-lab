@@ -67,6 +67,9 @@
   - name: Set post variables
     include: include/_post_vars.yaml
 
+  - name: Extend var
+    shell: lvextend -L+8GiB /dev/mapper/rootvg-var ; resize2fs /dev/mapper/rootvg-var
+
   - name: Lookup master hostname record
     shell: dig +short SRV _{{ srv_name -}}._tcp.{{- domain }} | awk '{print $4}' | sed s/\.$//g
     register: _master
