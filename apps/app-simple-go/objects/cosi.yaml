@@ -1,0 +1,28 @@
+apiVersion: v1
+items:
+- apiVersion: v1
+  kind: Service
+  metadata:
+    creationTimestamp: 2020-12-04T15:05:01Z
+    labels:
+      app: simpleapi
+      application: simpleapi
+    name: simpleapi-headless
+    namespace: simple
+    resourceVersion: "3195434"
+    selfLink: /api/v1/namespaces/simple/services/simpleapi-headless
+    uid: 154260eb-3642-11eb-9570-525400dc1209
+  spec:
+    ports:
+    - name: http
+      port: 8080
+      protocol: TCP
+      targetPort: 8080
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+kind: List
+metadata:
+  resourceVersion: ""
+  selfLink: ""

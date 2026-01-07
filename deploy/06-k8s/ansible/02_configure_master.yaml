@@ -136,7 +136,7 @@
     shell: nmcli conn mod ovs-if-{{ bridge_name }} ipv4.route-metric 50
 
   - name: Change ovn bridge 
-    shell: nmcli conn mod ovs-if-{{ bridge_name }} ipv4.gateway "10.4.{{ subnet }}.1"
+    shell: nmcli conn mod ovs-if-{{ bridge_name }} ipv4.gateway "10.8.{{ subnet }}.1"
 
   - name: Change ovn bridge 
     shell: nmcli conn mod {{ iface }} ipv4.never-default yes

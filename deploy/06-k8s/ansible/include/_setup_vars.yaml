@@ -1,16 +1,16 @@
 - name: Set vm local variables
   set_fact:
-    virbr: "84"
+    virbr: "81"
     netsuffix: "84" 
-    hostname: "wks-f5f915-00004"
-    rootvg_size: 20
+    hostname: "wks-220a66-00004"
+    rootvg_size: 30
     vcpus: 2
     podnetwork: "10.38.0.0/16"
     svcnetwork: "10.49.0.0/16"
     clusterdom: "cluster.local"
     bridge_name: "br-ex"
     iface: "enp1s0"
-    ip_address: "10.8.4.84"
+    ip_address: "10.8.1.84"
     k8s_role: "worker"
-    srv_name: "k8s-0004"
+    srv_name: "k8s-0001"
     srv_port: 6443

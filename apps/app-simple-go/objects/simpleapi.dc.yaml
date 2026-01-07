@@ -1,0 +1,55 @@
+apiVersion: apps.openshift.io/v1
+kind: DeploymentConfig
+metadata:
+  creationTimestamp: null
+  generation: 1
+  labels:
+    app: simpleapi
+    application: simpleapi
+  name: simpleapi
+  selfLink: /apis/apps.openshift.io/v1/namespaces/simple/deploymentconfigs/simpleapi
+spec:
+  replicas: 0
+  revisionHistoryLimit: 10
+  selector:
+    deploymentConfig: simpleapi
+  strategy:
+    activeDeadlineSeconds: 21600
+    recreateParams:
+      timeoutSeconds: 600
+    resources: {}
+    type: Recreate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        application: simpleapi
+        deploymentConfig: simpleapi
+      name: simpleapi
+    spec:
+      containers:
+      - image: registry.lab.local/openshift/simpleapi:1.2.2
+        imagePullPolicy: Always
+        name: simpleapi
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+        resources: {}
+        securityContext: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+  test: false
+  triggers:
+  - type: ConfigChange
+status:
+  availableReplicas: 0
+  latestVersion: 0
+  observedGeneration: 0
+  replicas: 0
+  unavailableReplicas: 0
+  updatedReplicas: 0

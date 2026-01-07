@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  labels:
+    app: simpleapi
+  name: simpleapi
+spec:
+  podManagementPolicy: OrderedReady
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: simpleapi
+  serviceName: simpleapi-headless
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: simpleapi
+    spec:
+      containers:
+      - image: registry.lab.local/openshift/simpleapi:1.2.2
+        imagePullPolicy: IfNotPresent
+        name: simpleapi
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+          initialDelaySeconds: 30
+          periodSeconds: 5
+          successThreshold: 1
+          timeoutSeconds: 30
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      terminationGracePeriodSeconds: 300
