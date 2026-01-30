@@ -1,0 +1,9 @@
+- name: Set vm local variables
+  set_fact:
+    virbr: "80"
+    netsuffix: "8{{- node_index -}}" 
+    hostname: "rdma-{{- suffix -}}-0000{{- node_index -}}"
+    rootvg_size: 30
+    vcpus: 2
+    iface: "enp1s0"
+    ip_address: "10.8.80.4{{- node_index -}}"

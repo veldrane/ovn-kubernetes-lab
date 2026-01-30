@@ -1,0 +1,11 @@
+- hosts: localhost
+  become: true
+  connection: local
+  gather_facts: no
+  tasks:
+
+  - name: Set create master env variables
+    ansible.builtin.template:
+       src: templates/nodes.j2
+       dest: include/_setup_vars.yaml
+

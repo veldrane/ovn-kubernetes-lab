@@ -1,0 +1,9 @@
+- name: Set vm local variables
+  set_fact:
+    netsuffix: "30" 
+    hostname: "test"
+    rootvg_size: 40
+    disk_size: 21G
+    srv_name: "registry"
+    srv_port: 443
+    
