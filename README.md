@@ -1,3 +1,12 @@
+
+## 🗄️ Project status: Archived
+
+This project is no longer actively maintained.
+It is kept for reference and historical reasons.
+
+Last known working state: 2026-01
+
+
 <p align="left">
   <img src="./images/vxland.png" alt="vxland logo" width="200"/>
 </p>
@@ -8,7 +17,7 @@ It is designed to quickly spin up a fully functional environment using **Ansible
 
 ---
 
-## 📂 Directory Structure
+## Directory Structure
 
 - **deploy/** – Main deployment logic, organized into modular stages:
   - **00-vms/** – VM creation, base networking setup (Libvirt XML, basic OVN network, nftables segments)
@@ -25,7 +34,7 @@ It is designed to quickly spin up a fully functional environment using **Ansible
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Requirements
 - **Linux host** with Libvirt and Ansible installed
